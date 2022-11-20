@@ -1,0 +1,325 @@
+/* @font-face {
+  font-family: Poppins-Regular;
+  src: url('fonts/poppins/Poppins-Regular.ttf'); 
+} */
+
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  left: 0;
+  top: 0;
+  
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: scroll; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  padding-top: 0.5;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  font-family: poppins-regular;
+  opacity: 10;
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  border-radius: 10px;
+  max-width: 40vw; /* Could be more or less, depending on screen size */
+}
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 100px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Add padding to container elements */
+.container1 {
+  background-color: #fefefe;
+    width: 50vw;
+      z-index: 4; /* Sit on top */
+    opacity: 10;
+  padding: 3vw;
+  border-radius: 10px;
+}
+
+
+/*HeadLine in Book an Appn*/
+.topline{
+  color:#4CAF50;
+  text-align: center;
+}
+.toppara{
+  text-align: center;
+}
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  border: none;
+  width: 49%;
+  border-radius: 5px;
+  padding: 14px 20px;
+  font-family: poppins-regular;
+  font-size: 1vw;
+  text-justify: inter-word;
+  transition: .2s;
+  background-color: #f44336;
+  padding-right: 10px;
+  transition: transform .2s;
+}
+.bookbtn{
+  border: none;
+  width: 49%;
+  border-radius: 5px;
+  padding: 14px 20px;
+  font-family: poppins-regular;
+  font-size: 1vw;
+  text-justify: inter-word;
+  transition: .2s;
+  background-color:  #4CAF50;
+  padding-right: 18px;
+  margin-right: .4vw;
+  transition: transform .2s;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn:hover, .bookbtn:hover {
+   transition-duration: .5s;
+  transform: scale(1.05);
+}
+
+
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=number] ,input[type=date], input[type=time], textarea, select{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  background: #c2bebe;
+}
+
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+/* ------------------------------------------------------------------------------- */
+
+.mycare{
+  display: block;
+  height:5vw;
+  margin-left: 38%;
+  /* width:70vw; */
+  margin-right: auto;
+  float:center;
+  width: 22%;
+  }
+
+  ul {
+    list-style-type: none;
+    z-index:2;
+    height: 4vw;
+    width: 98vw;
+    margin: -1;
+    padding: 1px;
+    overflow: hidden;
+    background-color: black;
+    position: -webkit-sticky;/*Safari*/
+    position: sticky;
+    top: 0;
+}
+
+.a {
+    border: none;
+    outline: none;
+    top:0;
+    float: left;
+    padding:  5px 5.7vw;
+    display: inline;
+    color:white;
+    background-color: black;
+    height: 4vw;
+    width: 20%;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-size: 1.2vw;
+    
+}
+
+.active, .a:hover {
+    background-color: #4CAF50;
+    text-shadow: 1px 2px 10px #000;
+    color: #E5E7E9;
+    transform: scale(1.1);
+}
+
+.large-font {
+  text-align: center;
+font-family:sans-serif;
+color: rgb(78, 74, 74);
+font-size: 3vw; 
+font-weight: 100;
+ /* position: relative;  */
+ /* width:70vw; */
+word-wrap: break-word;
+}
+
+.medium-font{
+  font-size: 2.5vw;
+  /* color: whitesmoke; */
+  color: #F87E7B;
+  width:20vw;
+  top: 3.4vw;
+  /* text-justify: inter-word; */
+  word-wrap: break-word;
+  left: 25.5vw;
+  position: relative;
+}
+.bio{
+  width:15vw;
+  word-wrap: break-word;
+  font-size: 1.5vw;
+  top: -3 vw;
+  margin-left: 4vw;
+  position: relative;
+}
+
+.img2{
+  height:13vw;
+  width:13vw;
+  border-radius: 15vw;
+  top: -1.5vw;
+  left: 2vw;
+  margin-left: 2vw;
+  display: block;
+  position: relative;
+}
+
+.b1{
+  left: 2vw;
+  position: relative;
+}
+
+  
+.likes{
+  width:60vw;
+  word-wrap: break-word;
+  font-size: 1.3vw;
+  top: -18vw;
+  left: 25.5vw;
+  position: relative;
+}
+.fa-user-circle-o{
+  font-size: 1.5vw;
+}
+.fa-heart{
+  position: relative;
+  color: rgb(231, 20, 20);
+  font-size: 1.5vw;
+}
+.footer {
+  background-color: black;
+  position:relative;
+  left: 0;
+  bottom: 0vw;
+  padding: 1px;
+  text-align: center;
+  height: 4vw;
+  width: 100vw;
+  color:white;
+  
+}
+  
+.CommunityColumn {
+    
+  box-shadow: 0 8px 16px 0 rgba(82, 82, 82, 0.2);
+  margin-top: 2vw;
+   height:30vw;
+   width: 60vw;
+  margin-left: 20%;
+  font-family: poppins-regular;
+  padding: 1vw;
+  background-color: #f3f3f3;
+  transition:0.3s;
+  border-radius: 5px;
+  overflow: initial;
+ 
+}
+.all-trigger {
+  
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to bottom right, #B05574, #F87E7B);
+  padding: 1vw 2vw;
+  border-radius: 30px;
+  position: relative; 
+  margin-left: 44%;
+  top: -15vw;
+  text-decoration: none;
+  }
+
+  .button2 {
+      box-shadow: 0 8px 16px 0 rgba(82, 82, 82, 0.2);
+    position: relative;
+    background-color: #ec9129;
+    border: none;
+    font-size: 28px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 10vw;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+   top: -15vw;
+    left: 17%;
+  }
+  
+  .button2:after {
+    content: "";
+    background: #ffc446;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 2s
+  }
+  .button2:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+  }
+  

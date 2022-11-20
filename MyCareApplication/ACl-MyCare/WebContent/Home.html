@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="ACl-MyCare/WebContent/mycareuniv.ico" />
+
+<!-- <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Tangerine"> -->
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<script src="js\Home.js"></script>
+<link rel="stylesheet" href="css\Home.css">
+<!-- <link rel="stylesheet" href="test.css"> -->
+
+<script>
+  var check = function()
+    {
+      if (document.getElementById('password').value == document.getElementById('confirm_password').value)
+      {
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('message').innerHTML = 'passwords match';
+      } 
+      else
+      {
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('message').innerHTML = 'passwords dont match';
+      }
+    }
+  
+    var check2 = function()
+    {
+      if (document.getElementById('password2').value == document.getElementById('confirm_password2').value)
+      {
+      document.getElementById('message2').style.color = 'green';
+      document.getElementById('message2').innerHTML = 'passwords match';
+      } 
+      else
+      {
+      document.getElementById('message2').style.color = 'red';
+      document.getElementById('message2').innerHTML = 'passwords dont match';
+      }
+    }
+
+    var otpvar;
+    function checkotp()
+    {
+      var min=999; 
+      var max=9999;  
+      otpvar = Math.floor(Math.random() * (+max - +min)) + +min; 
+      // var otpvar= Math.floor(Math.random())
+      alert("Random Number Generated : " + otpvar ); 
+
+
+    }
+
+    var checkotp2 = function()
+    {
+      // alert(document.getElementById('otpass').value)
+      if (document.getElementById('otpass').value == otpvar)
+      {
+        document.getElementById('messageOtp').style.color = 'green';
+        document.getElementById('messageOtp').innerHTML = 'OTP is correct';
+      }
+      else
+      {
+      document.getElementById('messageOtp').style.color = 'red';
+      document.getElementById('messageOtp').innerHTML = 'OTP is incorrect';
+      }
+    }
+
+
+    function checkPh(evt)
+    {
+      var pn = (evt.which) ? evt.which : event.keyCode 
+      if(pn < 48 || pn > 57)
+      {
+        return false;
+      }
+      else
+      {
+        return true;	
+      }
+      
+    }
+  </script>
+
+
+<title>MyCare</title>
+</head>
+<body >
+    <header class="header">
+      <div class="container">
+        <div class="logo"><img src="Images\mycare.jpg" style="margin-left: -290px;" height="30%" width="40%"></div>
+        <nav>
+          <ul>
+            <li><a href="#" class="hi" title="MyCare"  style="color: cadetblue;" href="#">Home &nbsp&nbsp</a></li>
+            <li><a href="#aboutus" class="hi" title="The MyCare Story" >About Us &nbsp&nbsp</a></li>
+            <li><a href="#resources" class="hi"  title="Find Your Community/Medicine"  href="#">Resources &nbsp&nbsp</a></li>
+            <li><a href="#faq" class="hi" title="Frequently Asked Questions" href="#">FAQ</a></li>
+            <li><a href="#contactus" class="hi" title="Talk To Us" href="#">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="parallax">
+      <h2 id="parallax-text">Welcome to MyCare</h2>
+      <h1 id="parallax-text3"><br><br><br><br><br><br><br>Evolving technologies lead the lifestyle. We provide modern hospitality services to ensure your well-being</h1>
+    </div>
+    <div class="sample-section-wrap">
+      <div class="sample-section">
+        <!-- ------------------ -->
+
+
+
+        <a class="all-trigger" href="#" data-target="#login" data-toggle="modal" style="text-decoration: none;">Login</a>
+        <div id="login" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Login</h4>
+        <form action="LogUsers" target="_new" method="post">
+        <input type="email" name="email" class="text form-control" placeholder="Email ID" />
+        <input type="password" name="pass" class="text form-control" placeholder="password"  />
+        <input class="btn button" type="submit" value="Login" style="height: 0%;" />
+        <a class="btn button" href="#" data-target="#forgot" data-toggle="modal">Forgot</a>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        
+        
+        
+        <!-- FORGOT -->
+        <div id="forgot" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Forgot</h4>
+        <form action="otp()">
+        <input type="email" name="Email" class="text form-control" placeholder="Registered Email ID" required/>
+        <input type="tel" name="phone-no" class="text form-control" placeholder="Registered Phone no." onkeypress="return checkPh(event)"/>
+        <a class="btn button" href="#" data-target="#otp" data-toggle="modal" onclick="checkotp()">Get OTP</a>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+        <!-- OTP -->
+        <div id="otp" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+          <div class="modal-content">
+          <div class="modal-body">
+          <button data-dismiss="modal" class="close">&times;</button>
+          <h4>Forgot</h4>
+          <form>
+            <input type="text" name="otp" id="otpass" class="text form-control"  onkeyup="checkotp2()"  placeholder="Enter OTP" required/>
+            <span style="font-size: 25px;" id='messageOtp'></span><br>
+            <input type="password" name="password2" id="password2" class="text form-control" onkeyup="check2()" placeholder="password" pattern="(?=^.{4,15}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" title="Must contain at least 1 number and 1 uppercase, and at least 4 or more characters upto 15." required/>
+            <input type="password" name="password2" id="confirm_password2" class="text form-control" onkeyup="check2()" placeholder="retype password" pattern="(?=^.{4,15}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" title="Must contain at least 1 number and 1 uppercase, and at least 4 or more characters upto 15." required/><br>
+            <span style="font-size: 25px;" id='message2'></span><br>
+          <a class="btn button" href="#login" data-target="#otp" data-toggle="modal">Reset Passord</a>
+          </form>
+          </div>
+          </div>
+          </div>
+          </div>
+        
+
+        <!-- <a name="aboutus"> </a> -->
+        
+        <a class="all-trigger" href="#" data-target="#register" data-toggle="modal" style="text-decoration: none;">Register</a>
+        <div id="register" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Register</h4>
+        <form action="RegUsers" method="post">
+        <input type="email" name="email" class="text form-control" placeholder="Email ID" required/>
+        <input type="password" name="pass" id="password" class="text form-control" onkeyup="check()" placeholder="password" pattern="(?=^.{4,15}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" title="Must contain at least 1 number and 1 uppercase and 1 lowercase , and at least 4 or more characters upto 15." required/>
+        <input type="password" name="conpass" id="confirm_password" class="text form-control" onkeyup="check()" placeholder="retype password" pattern="(?=^.{4,15}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" title="Must contain at least 1 number and 1 uppercase and 1 lowercase , and at least 4 or more characters upto 15." required/><br>
+        <span style="font-size: 25px;" id='message'></span>
+        <input type="text" name="user_name" class="text form-control" placeholder="Name" required/>
+
+        <select name="role" class="text form-control" placeholder="Register as Patient / Doctor / Pharmacist" required>
+          <option value="" style="color:#eee" >Register as Patient / Doctor / Pharmacist</option>
+          <option value="Patient">Patient</option>
+          <option value="Doctor">Doctor</option>
+          <option value="Pharmacist">Pharmacist</option>
+        </select>
+        <input type="tel" name="phone" class="text form-control" placeholder="Phone Number"  onkeypress="return checkPh(event)" required/>
+        <input type="textarea" name="street" class="text form-control" placeholder="Street Address" required/>
+        <input type="text" name="city" class="text form-control" placeholder="City / Locality" required/>
+        <select name="state" class="text form-control" placeholder="State / Province / Region" required>
+          <option value="" style="color:#eee">State / Province / Region</option>
+          <option value="AN">Andaman and Nicobar Islands</option>
+          <option value="AP">Andhra Pradesh</option>
+          <option value="AR">Arunachal Pradesh</option>
+          <option value="AS">Assam</option>
+          <option value="BR">Bihar</option>
+          <option value="CH">Chandigarh</option>
+          <option value="CT">Chhattisgarh</option>
+          <option value="DN">Dadra and Nagar Haveli</option>
+          <option value="DD">Daman and Diu</option>
+          <option value="DL">Delhi</option>
+          <option value="GA">Goa</option>
+          <option value="GJ">Gujarat</option>
+          <option value="HR">Haryana</option>
+          <option value="HP">Himachal Pradesh</option>
+          <option value="JK">Jammu and Kashmir</option>
+          <option value="JH">Jharkhand</option>
+          <option value="KA">Karnataka</option>
+          <option value="KL">Kerala</option>
+          <option value="LD">Lakshadweep</option>
+          <option value="MP">Madhya Pradesh</option>
+          <option value="MH">Maharashtra</option>
+          <option value="MN">Manipur</option>
+          <option value="ML">Meghalaya</option>
+          <option value="MZ">Mizoram</option>
+          <option value="NL">Nagaland</option>
+          <option value="OR">Orissa</option>
+          <option value="PY">Pondicherry</option>
+          <option value="PB">Punjab</option>
+          <option value="RJ">Rajasthan</option>
+          <option value="SK">Sikkim</option>
+          <option value="TN">Tamil Nadu</option>
+          <option value="TR">Tripura</option>
+          <option value="UP">Uttar Pradesh</option>
+          <option value="UL">Uttaranchal</option>
+          <option value="WB">West Bengal</option>
+          </select>
+        <input type="number" name="zip" class="text form-control" placeholder="Zip / Postal Code" onkeypress="return checkPh(event)"/ required>
+        <br><input class="btn button" type="submit" value="Register" style="height: 0%;" />
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="parallax2">
+    </div>
+    <a name="aboutus"> </a>
+    <div class="parallax2">
+    </div>
+
+    <div class="sample-section-wrap">
+      <div class="sample-section">
+
+
+<h1 style="font-size:4vw;">ABOUT US</h1>
+<!-- <p>---------------------------------------------------------------------------------------------------------</p> -->
+<div class="divid"></div>
+<p>“We are here to help you in getting your health better, Since we know health is peace and Being healthy is prospority.”</p>
+
+<p>“MyCare serves you the best Community Marketing services, reducing your work to find the best hospital or pharmacy. We can't control what's going on outside but we can control what goes inside.”</p>
+  <!-- <p>---------------------------------------------------------------------------------------------------------</p> -->
+  <section class="portfolio">
+    <div class="container2">
+      <h2 style="font-size:4vw;">Portfolio</h2>
+      <p style="font-size:1.5vw;"><br>Communities formed Based on User interest <br> Doctors Can Publish their hospitals and Clinic.<br> Pharamacist can publish his Drugs in the Web portal</p>
+    </div>
+  </section>
+      </div>
+    </div>
+
+
+    <div class="sample-section-wrap">
+      <div class="sample-section">
+  <div class="parallax2">
+  </div>
+  <section class="hero-banner">
+    <div class="container">
+      <h2 style="font-size:4vw;">ACL APP</h2>
+    </div>
+  </section>
+      </div>
+    </div>
+
+
+
+
+      
+
+      <div class="parallax2">
+      </div>
+      <a name="resources"></a>
+      <div class="parallax2">
+      </div>
+      <div class="parallax2">
+    <h1 id="parallax-text">RESOURCES</h1>  
+      </div>
+      <div class="parallax3">
+      </div>
+
+
+
+
+      <div class="sample-section-wrap">
+        <div class="sample-section2">
+          <h2>Communities</h2>
+        </div></div>
+
+      <div class="contain">
+
+        <div class="row_outer">
+          <div class="row__inner">
+        
+        <div class="tile">
+        <div class="tile__media">
+        <img class="tile__img" src="C:\Users\Adith\MyCareApplication\ACl-MyCare\WebContent\Images\login\tree-736885__480.jpg" alt="" />
+        </div>
+        <div class="tile__details">
+        <div class="tile__title">
+        Top Gear
+        </div>
+        </div>
+        </div>
+        <div class="tile">
+        <div class="tile__media">
+        <img class="tile__img" src="C:\Users\Adith\MyCareApplication\ACl-MyCare\WebContent\Images\login\photo-1453728013993-6d66e9c9123a.jpg" alt="" />
+        </div>
+        <div class="tile__details">
+        <div class="tile__title">
+        Top Gear
+        </div>
+        </div>
+        </div>
+        <div class="tile">
+        <div class="tile__media">
+        <img class="tile__img" src="planet3.jpg" alt="" />
+        </div>
+        <div class="tile__details">
+        <div class="tile__title">
+        Top Gear
+        </div>
+        </div>
+        </div>
+        <div class="tile">
+        <div class="tile__media">
+        <img class="tile__img" src="planet4.jpg" alt="" />
+        </div>
+        <div class="tile__details">
+        <div class="tile__title">
+        Top Gear
+        </div>
+        </div>
+        </div>
+        <div class="tile">
+          <div class="tile__media">
+          <img class="tile__img" src="planet.jpg" alt="" />
+          </div>
+          <div class="tile__details">
+          <div class="tile__title">
+          Top Gear
+          </div>
+          </div>
+          </div>
+          <div class="tile">
+          <div class="tile__media">
+          <img class="tile__img" src="planet2.jpg" alt="" />
+          </div>
+          <div class="tile__details">
+          <div class="tile__title">
+          Top Gear
+          </div>
+          </div>
+          </div>
+          <div class="tile">
+          <div class="tile__media">
+          <img class="tile__img" src="planet3.jpg" alt="" />
+          </div>
+          <div class="tile__details">
+          <div class="tile__title">
+          Top Gear
+          </div>
+          </div>
+          </div>
+          <div class="tile">
+            <div class="tile__media">
+            <img class="tile__img" src="planetfor.jpg" alt="" />
+            </div>
+            <div class="tile__details">
+            <div class="tile__title">
+            Top Gear
+            </div>
+            </div>
+            </div>
+          
+          <div class="tile">
+          <div class="tile__media">
+          <img class="tile__img" src="planetlog.jpg" alt="" />
+          </div>
+          <div class="tile__details">
+          <div class="tile__title">
+          Top Gear
+          </div>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="parallax3">
+      </div>
+      <div class="sample-section-wrap">
+        <div class="sample-section2">
+          <h2>Medicines</h2>
+        </div></div>
+
+      <div class="contain">
+
+        <div class="row_outer">
+          <div class="row__inner">
+        
+        <div class="tile">
+        <div class="tile__media">
+        <img class="tile__img" src="planet.jpg" alt="" />
+        </div>
+        <div class="tile__details">
+        <div class="tile__title">
+        Top Gear
+        </div>
+        </div>
+        </div>
+        <div class="tile">
+        <div class="tile__media">
+        <img class="tile__img" src="planet2.jpg" alt="" />
+        </div>
+        <div class="tile__details">
+        <div class="tile__title">
+        Top Gear
+        </div>
+        </div>
+        </div>
+        <div class="tile">
+        <div class="tile__media">
+        <img class="tile__img" src="planet3.jpg" alt="" />
+        </div>
+        <div class="tile__details">
+        <div class="tile__title">
+        Top Gear
+        </div>
+        </div>
+        </div>
+        <div class="tile">
+        <div class="tile__media">
+        <img class="tile__img" src="planet4.jpg" alt="" />
+        </div>
+        <div class="tile__details">
+        <div class="tile__title">
+        Top Gear
+        </div>
+        </div>
+        </div>
+        <div class="tile">
+          <div class="tile__media">
+          <img class="tile__img" src="planet.jpg" alt="" />
+          </div>
+          <div class="tile__details">
+          <div class="tile__title">
+          Top Gear
+          </div>
+          </div>
+          </div>
+          <div class="tile">
+          <div class="tile__media">
+          <img class="tile__img" src="planet2.jpg" alt="" />
+          </div>
+          <div class="tile__details">
+          <div class="tile__title">
+          Top Gear
+          </div>
+          </div>
+          </div>
+          <div class="tile">
+          <div class="tile__media">
+          <img class="tile__img" src="planet3.jpg" alt="" />
+          </div>
+          <div class="tile__details">
+          <div class="tile__title">
+          Top Gear
+          </div>
+          </div>
+          </div>
+          <div class="tile">
+          <div class="tile__media">
+          <img class="tile__img" src="planet4.jpg" alt="" />
+          </div>
+          <div class="tile__details">
+          <div class="tile__title">
+          Top Gear
+          </div>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="parallax3">
+      </div>
+
+      <div class="contactcontain">
+        <div class="rowc body">
+        <form action="#">
+          <center>
+        <ul style="width: 80%;">
+        <li>
+        <label for="comments">Paste the URL of the Medicine you would like to recommend to MyCare</label>
+        <textarea rows="1" name="comments" placeholder="www.websitename.com/product........"></textarea>
+        </li>
+        <li>
+          <label for="comments">Or add a Product Description.</label>
+          <textarea rows="2" name="comments"></textarea>
+        </li>
+        <button class="cbtn cbtn-submit" type="submit" value="Submit">Send</button>
+        <!-- <li><div class="divider"></div></li> -->
+        </ul>
+        </form>
+        </div>
+        </div>
+        
+
+
+
+
+        <div class="parallax2">
+        </div>
+        <a name="faq"></a>
+      <div class="parallax2">
+        </div>
+    <div class="parallax2">
+      <h1 id="parallax-text">FAQ</h1>  
+        </div>
+        <div class="parallax3">
+        </div>
+  <button class="accordion2" style="text-align:center"><b>What is MyCare ?</b></button>
+  <div class="panel2">
+    <p>MyCare is a Web-Application, which helps you to find best Hospitals, Medicines and Shop them.</p>
+  </div>
+  
+  <button class="accordion2" style="text-align:center"><b>Why to Use MyCare ?</b></button>
+  <div class="panel2">
+    <p>MyCare enables users to participate in community marketing and ship the desired medicines, the user is benefitted since the bulk order reduce the individual pay for the product.</p>
+  </div>
+  
+  <button class="accordion2" style="text-align:center"><b>Can a User communicate with Doctors or Hospital ?</b></button>
+  <div class="panel2">
+    <p>MyCare provides option to connect to the desired hospitality provider and get their concerns cleared, even get prescriptions too.</p>
+  </div>
+
+  <button class="accordion2" style="text-align:center"><b>Can a User be a part in many Communities ?</b></button>
+  <div class="panel2">
+    <p>MyCare suggests the communities based on user intrests, and a User can be a part in many communities with the certain regulation of the respective community.</p>
+  </div>
+
+  <script>
+    var acc = document.getElementsByClassName("accordion2");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active2");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+    </script>
+
+<div class="contactcontain">
+  <div class="rowc body">
+  <form action="#">
+    <center>
+  <ul style="width: 80%;">
+  <li>
+  <textarea rows="1" name="comments" placeholder="Ask a question ?"></textarea>
+
+  <button class="cbtn cbtn-submit" type="submit" value="Submit">Send</button>
+</li>
+  </ul>
+  </form>
+  </div>
+  </div>
+  </center>
+
+        <div class="parallax2">
+        </div>
+       
+        <div class="parallax3">
+        </div>
+        <a name="contactus"></a>
+        <div class="parallax2">
+        </div>
+      <div class="sample-section-wrap">
+        <div class="sample-section2">
+          <h1 style="font-size:4vw;">CONTACT US</h1>
+        </div></div>
+
+
+      <div class="contactcontain">
+        <div class="rowc body">
+        <form action="#">
+          <center>
+        <ul style="width: 90%;">
+        <li>
+        <p class="left">
+        <label for="first_name">First name</label>
+        <input type="text" name="first_name" placeholder="" />
+        </p>
+        <p class="left">
+        <label for="last_name">Last name</label>
+        <input type="text" name="last_name" placeholder="" />
+        </p>
+        </li>
+        <li>
+        <p>
+        <label for="email">email <span class="req">*</span></label>
+        <input type="email" name="email" placeholder="" />
+        </p>
+        <p>
+        <label for="contact">contact no.</label>
+        <input type="tel" name="phno" placeholder="" onkeypress="return checkPh(event)"/>
+        </p>
+        </li>
+        
+        <li>
+        <label for="comments">comments</label>
+        <textarea rows="3" name="comments"></textarea>
+        </li>
+        <button class="cbtn cbtn-submit" type="submit" value="Submit">Submit</button>
+        </ul>
+        </form>
+        </div>
+        </div>
+        </center>
+
+
+
+
+
+      <div class="parallax2">
+      </div>
+      <div class="parallax2">
+      </div>
+    </div>
+  </div>
+    <footer class="footer-bs">
+      <div class="row">
+        <div class="col-md-3 footer-brand animated fadeInLeft">
+            <!-- <h2>Logo</h2> --><img src="Images\mycare.jpg" height="30%" width="50%" style="border-radius: 3px;"><br><br>
+            <p>All Rights Reserved</p>
+              <p>© copyright</p>
+          </div>
+        <div class="col-md-4 footer-nav animated fadeInUp">
+            <!-- <h4>Menu —</h4> -->
+            <div class="col-md-6">
+                  <ul class="pages">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Member Login</a></li>
+                      <li><a href="#">The MyCare Story</a></li>
+                      <li><a href="#">Bla</a></li>
+                  </ul>
+              </div>
+            <div class="col-md-6">
+                  <ul class="list">
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Contact us</a></li>
+                      <li><a href="#">Terms & Condition</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                  </ul>
+              </div>
+          </div>
+        <div class="col-md-2 footer-social animated fadeInDown">
+            <h4><u>Follow Us</u></h4>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Linkedin</a></li>
+              </ul>
+          </div>
+        <div class="col-md-3 footer-ns animated fadeInRight">
+            <h4>Newsletter</h4>
+              <p>Share your email for latest updates</p>
+              <p>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                    </span>
+                  </div><br><h4>WhatsApp : 9XXX12345</h4><p>@ Name</p><!-- /input-group -->
+               </p>
+          </div>
+      </div>
+  </footer>
+    </body>
+</html>
